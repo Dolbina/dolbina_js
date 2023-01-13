@@ -76,6 +76,7 @@
 
 
 // #41
+
 const atTheOldToad = {
   potions: [
     { name: "Speed potion", price: 460 },
@@ -87,30 +88,34 @@ const atTheOldToad = {
     return this.potions;
   },
   addPotion(newPotion) {
-    if (this.potions.includes(newPotion)) {
-      return `Error! Potion ${newPotion} is already in your inventory!`;
+    for (potion of this.potions) {
+      if (potion.name === newPotion.name) {
+        return `Error! Potion ${newPotion.name} is already in your inventory!`;
+      }
     }
-
     this.potions.push(newPotion);
   },
   removePotion(potionName) {
-    const potionIndex = this.potions.indexOf(potionName);
+    for (potion of this.potions) {
+      const potionIndex = this.potions.indexOf(potion);
 
-    if (potionIndex === -1) {
-      return `Potion ${potionName} is not in inventory!`;
+      if (potion.name === potionName) {
+        this.potions.splice(potionIndex, 1);
+      }
     }
 
-    this.potions.splice(potionIndex, 1);
+    return `Potion ${potionName} is not in inventory!`;
   },
   updatePotionName(oldName, newName) {
-    const potionIndex = this.potions.indexOf(oldName);
-
-    if (potionIndex === -1) {
-      return `Potion ${oldName} is not in inventory!`;
+    for (potion of this.potions) {
+      if (potion.name === oldName) {
+        potion.name = newName;
+      }
     }
-
-    this.potions.splice(potionIndex, 1, newName);
+    return `Potion ${oldName} is not in inventory!`;
   },
   // Change code above this line
 };
-
+console.log(atTheOldToad.getPotions());
+console.log(atTheOldToad.updatePotionName("Stone skin", "Invulnerability potion"));
+// console.log(atTheOldToad.getPotions());
