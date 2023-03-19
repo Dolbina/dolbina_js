@@ -260,74 +260,114 @@
 // console.log(getTotalFriendCount(users));
 
 // 48
-users = [
-  {
-    name: "Moore Hensley",
-    email: "moorehensley@indexia.com",
-    eyeColor: "blue",
-    friends: ["Sharron Pace"],
-    isActive: false,
-    balance: 2811,
-    gender: "male",
-  },
-  {
-    name: "Sharlene Bush",
-    email: "sharlenebush@tubesys.com",
-    eyeColor: "blue",
-    friends: ["Briana Decker", "Sharron Pace"],
-    isActive: true,
-    balance: 3821,
-    gender: "female",
-  },
-  {
-    name: "Ross Vazquez",
-    email: "rossvazquez@xinware.com",
-    eyeColor: "green",
-    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
-    isActive: false,
-    balance: 3793,
-    gender: "male",
-  },
-  {
-    name: "Elma Head",
-    email: "elmahead@omatom.com",
-    eyeColor: "green",
-    friends: ["Goldie Gentry", "Aisha Tran"],
-    isActive: true,
-    balance: 2278,
-    gender: "female",
-  },
-  {
-    name: "Carey Barr",
-    email: "careybarr@nurali.com",
-    eyeColor: "blue",
-    friends: ["Jordan Sampson", "Eddie Strong"],
-    isActive: true,
-    balance: 3951,
-    gender: "male",
-  },
-  {
-    name: "Blackburn Dotson",
-    email: "blackburndotson@furnigeer.com",
-    eyeColor: "brown",
-    friends: ["Jacklyn Lucas", "Linda Chapman"],
-    isActive: false,
-    balance: 1498,
-    gender: "male",
-  },
-  {
-    name: "Sheree Anthony",
-    email: "shereeanthony@kog.com",
-    eyeColor: "brown",
-    friends: ["Goldie Gentry", "Briana Decker"],
-    isActive: true,
-    balance: 2764,
-    gender: "female",
-  },
-];
+// users = [
+//   {
+//     name: "Moore Hensley",
+//     email: "moorehensley@indexia.com",
+//     eyeColor: "blue",
+//     friends: ["Sharron Pace"],
+//     isActive: false,
+//     balance: 2811,
+//     gender: "male",
+//   },
+//   {
+//     name: "Sharlene Bush",
+//     email: "sharlenebush@tubesys.com",
+//     eyeColor: "blue",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     isActive: true,
+//     balance: 3821,
+//     gender: "female",
+//   },
+//   {
+//     name: "Ross Vazquez",
+//     email: "rossvazquez@xinware.com",
+//     eyeColor: "green",
+//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//     isActive: false,
+//     balance: 3793,
+//     gender: "male",
+//   },
+//   {
+//     name: "Elma Head",
+//     email: "elmahead@omatom.com",
+//     eyeColor: "green",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     isActive: true,
+//     balance: 2278,
+//     gender: "female",
+//   },
+//   {
+//     name: "Carey Barr",
+//     email: "careybarr@nurali.com",
+//     eyeColor: "blue",
+//     friends: ["Jordan Sampson", "Eddie Strong"],
+//     isActive: true,
+//     balance: 3951,
+//     gender: "male",
+//   },
+//   {
+//     name: "Blackburn Dotson",
+//     email: "blackburndotson@furnigeer.com",
+//     eyeColor: "brown",
+//     friends: ["Jacklyn Lucas", "Linda Chapman"],
+//     isActive: false,
+//     balance: 1498,
+//     gender: "male",
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     email: "shereeanthony@kog.com",
+//     eyeColor: "brown",
+//     friends: ["Goldie Gentry", "Briana Decker"],
+//     isActive: true,
+//     balance: 2764,
+//     gender: "female",
+//   },
+// ];
 
-getTotalBalanceByGender = (users, gender) => {
-  return users.filter((el) => el.gender === gender).reduce((total, user) => total + user.balance, 0);
-};
-console.log(getTotalBalanceByGender(users, "male"));
-console.log(getTotalBalanceByGender(users, "female"));
+// getTotalBalanceByGender = (users, gender) => {
+//   return users.filter((el) => el.gender === gender).reduce((total, user) => total + user.balance, 0);
+// };
+// console.log(getTotalBalanceByGender(users, "male"));
+// console.log(getTotalBalanceByGender(users, "female"));
+
+
+// Лекция2 Модуль 1 Мельник
+// ## Example 9 - Ввод пользователя и ветвления
+
+// Напиши скрипт, который будет спрашивать логин с помощью `prompt` и логировать
+// результат в консоль браузера.
+
+// - Если посетитель вводит `"Админ"`, то `prompt` запрашивает пароль
+// - Если ничего не введено или нажата клавиша Esc - вывести строку `"Отменено"`
+// - В противном случае вывести строку `"Я вас не знаю"`
+
+// Пароль проверять так:
+
+// - Если введён пароль `"Я админ"`, то вывести строку `"Здравствуйте!"`
+// - Иначе выводить строку `"Неверный пароль"`
+
+let nameEl = prompt("Логин", ""); 
+if (nameEl === 'Админ') {
+  let pass = prompt("Пароль", "");
+  if (pass === "Я админ") {
+    console.log("Здравствуйте!");
+  } else {
+    console.log("Неверный пароль");
+  }
+}
+  if (nameEl === "") {
+    console.log("Отменено");
+}
+console.log("Я вас не знаю");
+  
+
+
+
+
+
+
+
+  
+
