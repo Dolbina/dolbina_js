@@ -332,7 +332,6 @@
 // console.log(getTotalBalanceByGender(users, "male"));
 // console.log(getTotalBalanceByGender(users, "female"));
 
-
 // Лекция2 Модуль 1 Мельник
 // ## Example 9 - Ввод пользователя и ветвления
 
@@ -348,26 +347,16 @@
 // - Если введён пароль `"Я админ"`, то вывести строку `"Здравствуйте!"`
 // - Иначе выводить строку `"Неверный пароль"`
 
-let nameEl = prompt("Логин", ""); 
-if (nameEl === 'Админ') {
+let nameEl = "";
+nameEl = prompt("Логин", "");
+console.log(nameEl);
+if (nameEl === "Админ") {
   let pass = prompt("Пароль", "");
   if (pass === "Я админ") {
     console.log("Здравствуйте!");
   } else {
     console.log("Неверный пароль");
   }
-}
-  if (nameEl === "") {
-    console.log("Отменено");
-}
-console.log("Я вас не знаю");
-  
-
-
-
-
-
-
-
-  
-
+} else if (nameEl === ""||nameEl === null) {
+  console.log("Отменено");
+} else console.log("Я вас не знаю");
