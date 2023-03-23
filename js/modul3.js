@@ -444,7 +444,6 @@
 
 
 
-
 // ## Example 9 - Колекція курсів (includes, indexOf, push і т. д.)
 
 // Напишіть функції для роботи з колекцією навчальних курсів `courses`:
@@ -487,3 +486,92 @@
 // console.log(updateCourse("Vlad", "Andry"));
 
 // console.log(updateCourse("Tima", "Andry"));
+
+
+// console.log("Модуль 3. Заняття 1. Об'єкти");
+// ## Example 1 - Основи об'єктів
+
+// Напиши скрипт, який для об'єкта `user`, послідовно:
+
+// - додає поле `mood` зі значенням `'happy'`
+// - замінює значення `hobby` на `'skydiving'`
+// - замінює значення `premium` на `false`
+// - виводить вміст об'єкта `user` у форматі `ключ:значення` використовуючи
+//   `Object.keys()` та `for...of`
+
+// ```js
+// const user = {
+//   name: 'Mango',
+//   age: 20,
+//   hobby: 'html',
+//   premium: true,
+// };
+
+// user.mood = "happy";
+// user.hobby = "skydiving";
+// user.premium = false;
+
+// const keys = Object.keys(user);
+// for (let key of keys){
+//     console.log(`${ key }:${ user[key] } `);
+// }
+
+
+// console.log("user", user);
+
+// ## Example 2 - метод Object.values()
+
+// У нас є об'єкт, де зберігаються зарплати нашої команди. Напишіть код для
+// підсумовування всіх зарплат і збережіть результат у змінній sum. Повинно
+// вийти 390. Якщо об'єкт `salaries` порожній, то результат має бути 0.
+
+// ### Код
+
+// ```js
+// const salaries = {
+//   John: 100,
+//   Ann: 160,
+//   Pete: 130,
+// };
+
+// const salaries1 = {};
+
+// const calcSalaries = function (salaries) {
+//     const values = Object.values(salaries);
+//     if (values.length === 0) {
+//         return 0;
+//     };
+//     let total=0;
+//     for (const value of values) {
+//         total += value;
+//     }
+//     return total;
+// };
+// // calcSalaries(salaries1);
+// console.log(calcSalaries(salaries));
+
+
+// ## Example 3 - Масив об'єктів
+
+// Напишіть функцію `calcTotalPrice(stones, stoneName)`, яка приймає масив
+// об'єктів та рядок з назвою каменю. Функція рахує і повертає загальну вартість
+// каміння з таким ім'ям, ціною та кількістю з об'єкта
+
+// ### Код
+/**
+ * 1. Створити функцію яка приймає обʼєктів і рядок(імя бажаного каменю)
+ * 2. Знайти із масиву обʼєктів бажаний камень
+ * 3. Порахувати його загальну вартість
+ * 4. Повернути вартість із функції
+ */
+
+// ```js
+const stones = [
+  { name: 'Смарагд', price: 1300, quantity: 4 },
+  { name: 'Діамант', price: 2700, quantity: 3 },
+  { name: 'Сапфір', price: 400, quantity: 7 },
+  { name: 'Щебінь', price: 200, quantity: 2 },
+];
+
+
+
