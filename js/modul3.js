@@ -407,3 +407,83 @@
 // }
 // console.log(number);
 
+// ## Example 7 - Середнє значення
+
+// Напишіть функцію `calAverage()` яка приймає довільну кількість аргументів
+// і повертає їхнє середнє значення. Усі аргументи будуть лише числами.
+
+
+// function calAverage() {
+//     let sum = 0;
+//     let total = 0;
+//     for (const argument of arguments) {
+//         sum += argument;
+    
+//     }
+// total = sum / arguments.length;
+//     return total;
+// }
+// console.log(calAverage(22, 33, 44, 55));
+
+// ## Example 8 - Форматування часу
+// Напиши функцію `formatTime(minutes)` яка переведе значення `minutes`
+// (кількість хвилин) у рядок у форматі годин та хвилин `HH:MM`.
+
+// function formatTime(minutes){
+//     let hours = Math.floor(minutes / 60);
+//     console.log(hours);
+//     let min = minutes % 60;
+//     console.log(min);
+//     return `${hours}:${min}`;
+// }
+    
+// console.log(formatTime(80));
+// console.log(formatTime(120));
+//     console.log(formatTime(368));
+
+
+
+
+
+// ## Example 9 - Колекція курсів (includes, indexOf, push і т. д.)
+
+// Напишіть функції для роботи з колекцією навчальних курсів `courses`:
+
+// - `addCourse(name)` - додає курс до кінця колекції
+// - `removeCourse(name)` - видаляє курс із колекції
+// - `updateCourse(oldName, newName)` - змінює ім'я на нове
+
+
+// let collection = ["Tima", "Ira", "Tanya"];
+// console.log(collection);
+
+// function addCourse(name) {
+//     if(collection.includes(name) !== name){
+//     collection.push(name);}
+//     return collection;
+// }
+
+// console.log(addCourse("Ann"));
+
+
+// function removeCourse(name) {
+//     if (collection.indexOf(name) === -1) {
+//         return `такого нема`
+//     }
+//     collection.splice(collection.indexOf(name), 1);
+//     return collection;
+// }
+
+// console.log(removeCourse("Zina"));
+// console.log(removeCourse("Ira"));
+
+// function updateCourse(oldName, newName) {
+//      if (collection.indexOf(oldName) === -1) {
+//        return `такого нема`;
+//      }
+//      collection.splice(collection.indexOf(oldName), 1, newName);
+//     return collection;
+// }
+// console.log(updateCourse("Vlad", "Andry"));
+
+// console.log(updateCourse("Tima", "Andry"));
