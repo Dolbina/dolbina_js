@@ -1294,3 +1294,25 @@ const cars = [
 // const getTotalAmount = (cars) => cars.reduce((acc, { amount }) => acc + amount, 0);
 
 // console.log(getTotalAmount(cars));
+
+// ## Example 11 - Цепочки методов
+
+// Пусть функция `getAvailableCarNames` возвращает массив моделей автомобилей, но
+// только тех, которые сейчас на распродаже.
+
+// ```js
+// const getModelsOnSale = cars => {};
+
+// console.table(getModelsOnSale(cars));
+// ```
+
+// ## Example 12 - Цепочки методов
+
+// Пусть функция `getSortedCarsOnSale` возвращает массив автомобилей на распродаже
+// (свойство onSale), отсортированных по возрастанию цены.
+
+// ```js
+// const getSortedCarsOnSale = cars => {};
+
+// console.table(getSortedCarsOnSale(cars));
+// ```
