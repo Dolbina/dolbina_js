@@ -670,7 +670,7 @@
 // },
 // // Метод  возвращает количество средств определенного типа транзакции из всей истории транзакции
 
-//   getTransactionTotal(type) { 
+//   getTransactionTotal(type) {
 //     let total = 0;
 //     for (const transaction of account.transactions) {
 //       if (transaction.type === type) {
@@ -693,3 +693,226 @@
 
 // console.log(account.getTransactionDetails(5));
 // console.log(account.getTransactionTotal(TransactionTypes.WITHDRAW));
+
+
+// Урок №2
+
+// # Модуль 3 Занятие 6. Деструктуризация и rest/spread
+
+// ## Example 1 - Деструктуризация
+
+// Перепиши функцию так, чтобы она принимала один объект параметров, вместо набора
+// независимых аргументов.
+
+// ```js
+// 1 вариант(деструктуризация в самих параметрах)
+// function calcBMI({ weight, height }) {
+//   const numericWeight = Number(weight.replace(",", "."));
+//   const numericHeight = Number(height.replace(",", "."));
+//   return Number((numericWeight / numericHeight ** 2).toFixed(1));
+// }
+
+// 2 вариант (деструктуризация в теле функции)
+// function calcBMI(clientParams) {
+//     const { weight, height } = clientParams;
+//   const numericWeight = Number(weight.replace(",", "."));
+//   const numericHeight = Number(height.replace(",", "."));
+//   return Number((numericWeight / numericHeight ** 2).toFixed(1));
+// }
+
+// // Ожидается
+// console.log(
+//   calcBMI({
+//     weight: '88,3',
+//     height: '1.75',
+//   }),
+// );
+// console.log(
+//   calcBMI({
+//     weight: '68,3',
+//     height: '1.65',
+//   }),
+// );
+// console.log(
+//   calcBMI({
+//     weight: '118,3',
+//     height: '1.95',
+//   }),
+// );
+
+
+// ## Example 2 - Деструктуризация
+
+// Перепиши функцию так, чтобы она принимала один объект параметров, вместо набора
+// независимых аргументов.
+
+// ```js
+// 1 вар
+// function printContactsInfo({ names, phones }) {
+//   const nameList = names.split(',');
+//   const phoneList = phones.split(',');
+//   for (let i = 0; i < nameList.length; i += 1) {
+//     console.log(`${nameList[i]}: ${phoneList[i]}`);
+//   }
+// }
+// 2 вар
+// function printContactsInfo(data) {
+//     const { names, phones } = data;
+//   const nameList = names.split(",");
+//   const phoneList = phones.split(",");
+//   for (let i = 0; i < nameList.length; i += 1) {
+//     console.log(`${nameList[i]}: ${phoneList[i]}`);
+//   }
+// }
+
+// // Ожидается
+// printContactsInfo({
+//   names: 'Jacob,William,Solomon,Artemis',
+//   phones: '89001234567,89001112233,890055566377,890055566300',
+// });
+
+// ## Example 3 - Глубокая деструктуризация
+
+// Перепиши функцию так, чтобы она принимала один объект параметров, вместо набора
+// независимых аргументов.
+
+// ```js
+// function getBotReport(companyInfo) {
+//   return `${companyInfo.companyName} has ${
+//     companyInfo.bots.repair + companyInfo.bots.defence
+//   } bots in stock. Repair bots count is ${
+//     companyInfo.bots.repair
+//   }. Defence bots count is ${companyInfo.bots.defence}`;
+// }
+
+// декларативний код(коли не булу деструктуризации писали так)
+// function getBotReport(companyInfo) {
+//     const companyName = companyInfo.companyName;
+//     const repairBots = companyInfo.bots.repair;
+//     const defenceBots = companyInfo.bots.defence;
+//   return `${companyName} has ${repairBots + defenceBots} bots in stock. Repair bots count is ${repairBots}. Defence bots count is ${defenceBots}`;
+// }
+
+
+// 1 вар (вкладенна деструктуризация 2 уровня)
+// function getBotReport(companyInfo) {
+//     const { companyName,
+//         bots: {
+//         repair: repairBots, defence: defenceBots
+//     }, } = companyInfo;
+//   return `${companyName} has ${repairBots + defenceBots} bots in stock. Repair bots count is ${repairBots}. Defence bots count is ${defenceBots}`;
+// }
+
+// 2 вар
+// function getBotReport(companyInfo) {
+//     const { companyName, bots } = companyInfo;
+//     const { repair: repairBots, defence: defenceBots } = bots;
+//   return `${companyName} has ${repairBots + defenceBots} bots in stock. Repair bots count is ${repairBots}. Defence bots count is ${defenceBots}`;
+// }
+
+// // // // Ожидается
+// console.log(
+//   getBotReport({
+//     companyName: "Cyberdyne Systems",
+//     bots: {
+//       repair: 150,
+//       defence: 50,
+//     },
+//   })
+// ); // "Cyberdyne Systems has 200 bots in stock"
+
+// ## Example 4 - Деструктуризация
+
+// Перепиши функцию так, чтобы она принимала объект параметров со свойствами
+// `companyName` и `stock` и выводила репорт о количестве товаров на складе любой
+// компании.
+
+
+// ```js
+// // Решение
+// function getStockReport({ companyName, stock }) {
+//   let total = 0;
+//   for (const value of Object.values(stock)) {
+//     total += value;
+//   }
+//   return `${companyName} has ${total} items in stock`;
+// }
+
+// console.log(
+//   getStockReport({
+//     companyName: 'Cyberdyne Systems',
+//     stock: {
+//       repairBots: 150,
+//       defenceBots: 50,
+//     },
+//   }),
+// ); // "Cyberdyne Systems has 200 items in stock"
+
+// console.log(
+//   getStockReport({
+//     companyName: 'Belacci',
+//     stock: {
+//       shoes: 20,
+//       skirts: 10,
+//       hats: 5,
+//     },
+//   }),
+// ); // "Belacci has 35 item in stock"
+
+// ## Example 5 - Операция spread
+
+// На сайте есть настройки по дефолту
+
+// const settings = {
+//   theme: "light",
+//   fontFamily: "default",
+//   navbar: "fixed",
+//   markdown: "basic",
+// };
+
+// // треба змінити на інші настройки
+
+// const updatesettings = {
+//   theme: "dark",
+//   fontFamily: "monospace",
+//   navbar: "static",
+//   markdown: "basic",
+// };
+
+// // оператор spread робить заміну
+// const siteSettings = {
+//     ...settings,
+//     ...updatesettings,
+// };
+
+// spred оператор використовують щоб копіювати масив, він завжди робить копію
+
+// const technology = ["HTML", 'CSS'];
+// const programLanguages = ["Javascript", "Typescript"];
+// const frameworks = ["React", "Next"];
+// const fullStack = [...technology, ...programLanguages, ...frameworks];
+// const fullStack = ["HTML", "CSS", ...programLanguages, "React", "Next"];
+
+// ## Example 6 - Операция rest
+
+// чтоб сделать массив и потом с ним работать используют Array.from
+// function getMargin() {
+//   console.log(Array.from(arguments));
+// };
+
+
+// или rest (собиает все аргументи в один массив)
+// function getMargin(...args) {
+//   console.log(args);
+// }
+// getMargin(12);
+// getMargin(12, 15);
+// getMargin(12, 15, 20);
+// getMargin(12, 15, 20, 45);
+
+// если данных прилетает больше, чем нужно в работе, то ненужные данные можно записать в отдельную зминну props (как массив)
+
+// function getUserInfo(name, age, address, ...props) {}
+
+// getUserInfo("Bob", 34, "London", "0987654321", "user@gmail.com");
+// getUserInfo("Bob", 34, "London");
