@@ -1231,7 +1231,7 @@ const cars = [
 //   cars.filter(({ onSale }) => onSale === true);
 
 // 2 вариант // т.к.onSale true, то оно возвращает
-// const getCarsWithDiscount = ({ onSale }) => cars.filter((car) => onSale);
+// const getCarsWithDiscount = (cars)=> cars.filter(({ onSale }) => onSale);
 
 
 // console.table("cars", cars);
@@ -1300,9 +1300,10 @@ const cars = [
 // Пусть функция `getAvailableCarNames` возвращает массив моделей автомобилей, но
 // только тех, которые сейчас на распродаже.
 
-// ```js
-// const getModelsOnSale = cars => {};
 
+// ```js
+// const getModelsOnSale = (cars) => cars.filter(({ onSale }) => onSale);
+  
 // console.table(getModelsOnSale(cars));
 // ```
 
@@ -1312,7 +1313,9 @@ const cars = [
 // (свойство onSale), отсортированных по возрастанию цены.
 
 // ```js
-// const getSortedCarsOnSale = cars => {};
+// const getSortedCarsOnSale = cars =>
+//   (cars.filter(({ onSale }) => onSale))
+//   .sort((a, b)=> a.price-b.price);
 
 // console.table(getSortedCarsOnSale(cars));
 // ```
